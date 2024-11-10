@@ -1,28 +1,30 @@
 import { Link, Route, Routes } from "react-router-dom"
+import Home from "./Components/Home"
+import Product from "./Components/Product"
 
 function App() {
   return (
     <div>
-      <ul>
-        <li>
-          <Link to="/">🏠</Link>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
 
-          <Link to="/about">About</Link>
-        </li>
-      </ul>
-
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+        </ul>
+      </nav>
+      
       <Routes>
-        <Route path="/" element={ < Home /> }></Route>
+        <Route path="/" element={ <Home/> }></Route>
 
-        <Route path="/about" element={ < About /> }></Route>
+        <Route path="/about" element={ <About/> }></Route>
+
+        <Route path="/product/:id" element={ <Product/> }></Route>
       </Routes>
     </div>
-  )
-}
-
-function Home () {
-  return (
-    <h2>Home</h2>
   )
 }
 
