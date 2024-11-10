@@ -5,6 +5,9 @@ import Product from "./Components/Product"
 import Dashboard from "./Components/Dashboard"
 import Overview from "./Components/Overview"
 import Settings from "./Components/Settings"
+import ProtectedRoute from "./Components/ProtectedRoute"
+import Profile from "./Components/Profile"
+import NotFound from "./Components/NotFound"
 
 function App() {
   return (
@@ -21,6 +24,10 @@ function App() {
 
           <li>
             <Link to="/dashboard">Dashboard</Link>
+          </li>
+
+          <li>
+            <Link to="/profile">Profile</Link>
           </li>
         </ul>
       </nav>
@@ -45,6 +52,15 @@ function App() {
           }>          
           </Route>
         </Route>
+
+        <Route path="/profile" element={ 
+          <ProtectedRoute isAuthenticated={ true }>
+            <Profile/> 
+          </ProtectedRoute>
+        }>
+        </Route>
+        {/* Not Found * */}
+        <Route path="*" element={ <NotFound/> }></Route>
       </Routes>
     </div>
   )
